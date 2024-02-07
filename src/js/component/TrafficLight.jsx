@@ -8,6 +8,7 @@ export default class TrafficLight extends React.Component {
         this.state = {
             clickedLight: null,
             hasPurple: false,
+            containerHeight: "165px",
         };
     }
 
@@ -20,7 +21,7 @@ export default class TrafficLight extends React.Component {
     };
 
     addPurple = () => {
-        this.setState({ hasPurple: true});
+        this.setState({ hasPurple: true, containerHeight: "220px"});
     };
 
     render() {
@@ -36,11 +37,11 @@ export default class TrafficLight extends React.Component {
         return (
             <div className="d-flex flex-column align-items-center justify-content-center">
                 <div className="ms-5" id="trafficTop"></div>
-                <div id="container">
+                <div id="container" style={{ height: this.state.containerHeight }} >
                     <div className={"red light " + redExtraClass} onClick={() => this.setState({clickedLight: "red"})} ></div>
                     <div className={"yellow light " + yellowExtraClass} onClick={() => this.setState({clickedLight: "yellow"})}></div>
                     <div className={"green light " + greenExtraClass} onClick={() => this.setState({clickedLight: "green"})}></div>
-                    {this.state.hasPurple && <div className={"purple light" + purpleExtraClass}></div>}
+                    {this.state.hasPurple && <div className={"purple light " + purpleExtraClass}></div>}
                 </div>
                 <button className="btn btn-primary m-5" onClick={this.cycleLights}>Cycle Lights
                 </button>

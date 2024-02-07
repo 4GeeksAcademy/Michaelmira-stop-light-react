@@ -24,5 +24,6 @@
     &.red {background-color: red;}
     &.yellow {background-color: yellow;}
     &.green {background-color: green;}
+    &.purple {background-color: purple;}
     &.selected {box-shadow: #f8ffcc 0px 0px 50px 20px; } 
 }
