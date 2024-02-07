@@ -15,7 +15,7 @@ export default class TrafficLight extends React.Component {
         const currentIndex = lights.indexOf(this.state.clickedLight);
         const nextIndex = (currentIndex + 1) % lights.length;
         const nextLight = lights[nextIndex];
-        this.setState({ clickedLight: next:Light});
+        this.setState({ clickedLight: nextLight});
     };
 
     render() {
@@ -35,6 +35,8 @@ export default class TrafficLight extends React.Component {
                     <div className={"yellow light " + yellowExtraClass} onClick={() => this.setState({clickedLight: "yellow"})}></div>
                     <div className={"green light " + greenExtraClass} onClick={() => this.setState({clickedLight: "green"})}></div>
                 </div>
+                <button className="btn btn-primary m-5" onClick={this.cycleLights}>Cycle Lights
+                </button>
             </div>
         );
     }
