@@ -10,6 +10,14 @@ export default class TrafficLight extends React.Component {
         };
     }
 
+    cycleLights = () => {
+        const lights = ["red", "yellow", "green" ];
+        const currentIndex = lights.indexOf(this.state.clickedLight);
+        const nextIndex = (currentIndex + 1) % lights.length;
+        const nextLight = lights[nextIndex];
+        this.setState({ clickedLight: next:Light});
+    };
+
     render() {
         console.log(this.state);
         let redExtraClass = "";
