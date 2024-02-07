@@ -44,6 +44,8 @@ export default class TrafficLight extends React.Component {
                 </div>
                 <button className="btn btn-primary m-5" onClick={this.cycleLights}>Cycle Lights
                 </button>
+                <button className="btn btn-secondary p-3 mt-3" onClick={this.addPurple}>Add Purple Light
+                </button>
             </div>
         );
     }
