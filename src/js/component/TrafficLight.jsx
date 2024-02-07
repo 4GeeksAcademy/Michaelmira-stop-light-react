@@ -28,8 +28,8 @@ export default class TrafficLight extends React.Component {
         if(this.state.clickedLight === "green") greenExtraClass = "selected";
 
         return (
-            <div>
-                <div id="trafficTop"></div>
+            <div className="d-flex flex-column align-items-center justify-content-center">
+                <div className="ms-5" id="trafficTop"></div>
                 <div id="container">
                     <div className={"red light " + redExtraClass} onClick={() => this.setState({clickedLight: "red"})} ></div>
                     <div className={"yellow light " + yellowExtraClass} onClick={() => this.setState({clickedLight: "yellow"})}></div>
