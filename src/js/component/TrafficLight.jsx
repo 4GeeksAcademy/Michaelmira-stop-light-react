@@ -24,13 +24,6 @@ export default class TrafficLight extends React.Component {
         this.setState({ hasPurple: true, containerHeight: "220px"});
     };
 
-    togglePurple = () => {
-        this.setState((prevState) => ({ 
-            hasPurple: !prevState.hasPurple, 
-            containerHeight: !prevState.hasPurple ? "220px" :"165px",
-         }));
-    };
-
     render() {
         console.log(this.state);
         let redExtraClass = "";
@@ -49,12 +42,16 @@ export default class TrafficLight extends React.Component {
                     <div className={"red light " + redExtraClass} onClick={() => this.setState({clickedLight: "red"})} ></div>
                     <div className={"yellow light " + yellowExtraClass} onClick={() => this.setState({clickedLight: "yellow"})}></div>
                     <div className={"green light " + greenExtraClass} onClick={() => this.setState({clickedLight: "green"})}></div>
-                    {this.state.hasPurple && <div className={"purple light " + purpleExtraClass} onClick={this.togglePurple}></div>}
+                    {this.state.hasPurple && (
+                    <div
+                     className={"purple light " + purpleExtraClass}
+                     onClick={() => this.setState((prevState) => ({ clickedLight: prevState.clickedLight === "purple" ? null : "purple" }))}
+                     ></div>)}
                 </div>
-                <button className="btn btn-primary m-5" onClick={this.cycleLights}>Cycle Lights
+                <button className="btn btn-primary  m-5" onClick={this.cycleLights}>Cycle Lights
                 </button>
-                <button className="btn btn-secondary p-3 mt-3" onClick={this.togglePurple}>
-                    {this.state.hasPurple ? "turn Off Purple Light" : "Turn On Purple Light"}
+                <button className="btn btn-secondary p-3 mt-3" onClick={() => this.setState((prevState) => ({ hasPurple: !prevState.hasPurple, containerHeight: !prevState.hasPurple ? "220px" : "165px" }))}>
+                {this.state.hasPurple ? "Turn Off Purple Light" : "Turn On Purple Light"}
                 </button>
             </div>
         );
