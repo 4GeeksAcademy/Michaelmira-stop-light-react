@@ -25,7 +25,10 @@ export default class TrafficLight extends React.Component {
     };
 
     togglePurple = () => {
-        this.setState((prevState) => ({ hasPurple: !prevState.hasPurple, containerHeight: "220px" }));
+        this.setState((prevState) => ({ 
+            hasPurple: !prevState.hasPurple, 
+            containerHeight: !prevState.hasPurple ? "220px" :"165px",
+         }));
     };
 
     render() {
@@ -36,7 +39,7 @@ export default class TrafficLight extends React.Component {
         if(this.state.clickedLight === "yellow") yellowExtraClass = "selected";
         let greenExtraClass = "";
         if(this.state.clickedLight === "green") greenExtraClass = "selected";
-        let purpleExtraClass = this.state.hasPurple ? "selected" : "";
+        let purpleExtraClass = "";
         if(this.state.clickedLight === "purple") purpleExtraClass = "selected";
 
         return (
